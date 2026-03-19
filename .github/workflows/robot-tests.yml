@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
@@ -23,7 +23,6 @@ jobs:
         run: |
           pip install robotframework
           pip install robotframework-seleniumlibrary
-          webdriver-manager install
 
       - name: Setup Chrome
         uses: browser-actions/setup-chrome@latest
@@ -36,16 +35,8 @@ jobs:
           robot --outputdir results tests/
 
       - name: Upload Test Results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: robot-results
           path: results/
-
-      - name: Publish Test Report
-        uses: dorny/test-reporter@v1
-        if: always()
-        with:
-          name: Robot Framework Results
-          path: results/output.xml
-          reporter: java-junit
