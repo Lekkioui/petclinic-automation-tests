@@ -30,6 +30,11 @@ jobs:
       - name: Setup ChromeDriver
         uses: nanasess/setup-chromedriver@v2
 
+      - name: Start PetClinic
+        run: |
+          docker run -d -p 8080:8080 --name petclinic springcommunity/spring-framework-petclinic
+          sleep 30
+
       - name: Run Robot Framework Tests
         run: |
           robot --outputdir results tests/

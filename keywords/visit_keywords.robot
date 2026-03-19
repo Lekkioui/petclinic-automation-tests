@@ -7,12 +7,12 @@ Resource    ../keywords/pet_keywords.robot
 Go To Add Visit Page
     [Arguments]    ${fullname}    ${petname}
     Go To Owner Page    ${fullname}
-    Wait Until Element Is Visible    xpath=//a[contains(@href,'/visits/new')]
+    Wait Until Element Is Visible    xpath=//a[contains(@href,'/visits/new')]    timeout=10s
     Click Element    xpath=//a[contains(@href,'/visits/new')]
 
 Fill Visit Form
     [Arguments]    ${date}    ${description}
-    Wait Until Element Is Visible    id=date
+    Wait Until Element Is Visible    id=date    timeout=10s
     Execute Javascript    document.getElementById('date').value = '${date}'
     Input Text    id=description    ${description}
 
@@ -21,5 +21,4 @@ Submit Visit Form
 
 Verify Visit Created
     [Arguments]    ${description}
-    Wait Until Element Is Visible    xpath=//table[contains(@class,'table-striped')]
-    Page Should Contain    ${description}
+    Wait Until Page Contains    ${description}    timeout=10s

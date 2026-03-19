@@ -3,8 +3,14 @@ Resource    ../resources/common.robot
 
 *** Keywords ***
 Open PetClinic
-    Open Browser    http://localhost:8080    chrome
-    Maximize Browser Window
+    ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
+    Call Method    ${options}    add_argument    --headless
+    Call Method    ${options}    add_argument    --no-sandbox
+    Call Method    ${options}    add_argument    --disable-dev-shm-usage
+    Call Method    ${options}    add_argument    --window-size\=1920,1080
+    Create Webdriver    Chrome    options=${options}
+    Go To    ${BASE_URL}
+    Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]    timeout=10s
 
 Go To Add Owner Page
     Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]
@@ -33,11 +39,11 @@ Submit Owner Form
 
 Verify Owner Created
     [Arguments]    ${fullname}
-    Page Should Contain    ${fullname}
+    Wait Until Page Contains    ${fullname}    timeout=10s
 
 Verify Owner In Results
     [Arguments]    ${last}
-    Wait Until Element Is Visible    xpath=//table[@id='owners']
+    Wait Until Element Is Visible    xpath=//table[@id='owners']    timeout=10s
     Page Should Contain    ${last}
 
 Select Owner From Results
@@ -58,7 +64,7 @@ Edit Owner Form
 
 Verify Owner Updated
     [Arguments]    ${value}
-    Page Should Contain    ${value}
+    Wait Until Page Contains    ${value}    timeout=10s
 
 Close Browser Session
     Close Browser
