@@ -9,9 +9,11 @@ Open PetClinic
     Call Method    ${chrome_options}    add_argument    --no-sandbox
     Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
     Call Method    ${chrome_options}    add_argument    --disable-gpu
-    Create Webdriver    Chrome    options=${chrome_options}
+    ${service}=    Evaluate
+    ...    __import__('selenium.webdriver.chrome.service', fromlist=['Service']).Service(__import__('webdriver_manager.chrome', fromlist=['ChromeDriverManager']).ChromeDriverManager().install())
+    Create Webdriver    Chrome    options=${chrome_options}    service=${service}
     Go To    ${BASE_URL}
-    Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]    timeout=15s
+    Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]    timeout=30s
 
 Go To Add Owner Page
     Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]

@@ -25,23 +25,28 @@ jobs:
           pip install robotframework-seleniumlibrary
           pip install webdriver-manager
 
-      - name: Install Chrome
+      - name: Install Chrome and matching ChromeDriver
         run: |
-          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-          sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
-
-      - name: Install ChromeDriver
-        run: |
-          pip install chromedriver-autoinstall
-          python -c "import chromedriver_autoinstall; chromedriver_autoinstall.install()"
+          pip install selenium webdriver-manager
+          python -c "
+          from selenium import webdriver
+          from selenium.webdriver.chrome.service import Service
+          from webdriver_manager.chrome import ChromeDriverManager
+          print(ChromeDriverManager().install())
+          "
 
       - name: Start PetClinic
         run: |
           docker run -d -p 8080:8080 --name petclinic springcommunity/spring-framework-petclinic
-          echo "Waiting for PetClinic to start..."
-          sleep 45
+          echo "Waiting for PetClinic..."
+          for i in {1..24}; do
+            if curl -s http://localhost:8080 > /dev/null; then
+              echo "PetClinic is up!"
+              break
+            fi
+            echo "Attempt $i: not ready yet..."
+            sleep 5
+          done
 
       - name: Run Robot Framework Tests
         run: |
