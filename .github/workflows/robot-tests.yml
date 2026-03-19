@@ -23,17 +23,25 @@ jobs:
         run: |
           pip install robotframework
           pip install robotframework-seleniumlibrary
+          pip install webdriver-manager
 
-      - name: Setup Chrome
-        uses: browser-actions/setup-chrome@latest
+      - name: Install Chrome
+        run: |
+          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+          sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
 
-      - name: Setup ChromeDriver
-        uses: nanasess/setup-chromedriver@v2
+      - name: Install ChromeDriver
+        run: |
+          pip install chromedriver-autoinstall
+          python -c "import chromedriver_autoinstall; chromedriver_autoinstall.install()"
 
       - name: Start PetClinic
         run: |
           docker run -d -p 8080:8080 --name petclinic springcommunity/spring-framework-petclinic
-          sleep 30
+          echo "Waiting for PetClinic to start..."
+          sleep 45
 
       - name: Run Robot Framework Tests
         run: |

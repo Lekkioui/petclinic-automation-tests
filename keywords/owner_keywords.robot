@@ -3,14 +3,17 @@ Resource    ../resources/common.robot
 
 *** Keywords ***
 Open PetClinic
-    ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
-    Call Method    ${options}    add_argument    --headless
-    Call Method    ${options}    add_argument    --no-sandbox
-    Call Method    ${options}    add_argument    --disable-dev-shm-usage
-    Call Method    ${options}    add_argument    --window-size\=1920,1080
-    Create Webdriver    Chrome    options=${options}
+    ${chrome_options}=    Evaluate    
+    ...    sys.modules['selenium.webdriver'].ChromeOptions()    sys
+    Call Method    ${chrome_options}    add_argument    --headless=new
+    Call Method    ${chrome_options}    add_argument    --no-sandbox
+    Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
+    Call Method    ${chrome_options}    add_argument    --disable-gpu
+    Call Method    ${chrome_options}    add_argument    --window-size\=1920,1080
+    Call Method    ${chrome_options}    add_argument    --remote-debugging-port\=9222
+    Create Webdriver    Chrome    options=${chrome_options}
     Go To    ${BASE_URL}
-    Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]    timeout=10s
+    Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]    timeout=15s
 
 Go To Add Owner Page
     Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]
