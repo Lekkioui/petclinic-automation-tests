@@ -1,0 +1,22 @@
+# Robot Framework results
+results/
+log.html
+output.xml
+report.html
+
+# Screenshots
+screenshots/
+
+# Python
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# WebDriver
+chromedriver.exe
+
+# OS
+Thumbs.db
+.DS_Store
