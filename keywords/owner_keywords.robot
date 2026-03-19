@@ -4,8 +4,8 @@ Resource    ../resources/common.robot
 *** Keywords ***
 Open PetClinic
     ${chrome_options}=    Evaluate
-    ...    __import__('selenium.webdriver', fromlist=['ChromeOptions']).ChromeOptions()
-    Call Method    ${chrome_options}    add_argument    --headless=new
+    ...    selenium.webdriver.ChromeOptions()    modules=selenium.webdriver
+    Call Method    ${chrome_options}    add_argument    --headless
     Call Method    ${chrome_options}    add_argument    --no-sandbox
     Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
     Call Method    ${chrome_options}    add_argument    --disable-gpu
