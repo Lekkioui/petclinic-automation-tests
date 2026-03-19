@@ -9,7 +9,6 @@ Open PetClinic
     Call Method    ${chrome_options}    add_argument    --no-sandbox
     Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
     Call Method    ${chrome_options}    add_argument    --disable-gpu
-    Call Method    ${chrome_options}    add_argument    --window-size=1920,1080
     Create Webdriver    Chrome    options=${chrome_options}
     Go To    ${BASE_URL}
     Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]    timeout=15s
