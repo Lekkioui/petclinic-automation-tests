@@ -1,0 +1,879 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.14.0 on win32)" generated="2026-03-19T20:40:13.342882" rpa="false" schemaversion="5">
+<suite id="s1" name="Data Driven Tests" source="C:\Users\pc\Desktop\Projet PFE\automatisation\automation-tests\tests\data_driven_tests.robot">
+<test id="s1-t1" name="Add Multiple Owners Test" line="8">
+<kw name="Add Single Owner">
+<kw name="Open PetClinic" owner="owner_keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:13.547750" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8080'.</msg>
+<arg>http://localhost:8080</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-03-19T20:40:13.547597" elapsed="0.738168"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-03-19T20:40:14.286016" elapsed="0.027825"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:13.547049" elapsed="0.766942"/>
+</kw>
+<kw name="Go To Add Owner Page" owner="owner_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[@href="/owners/find"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:14.314484" elapsed="0.021521"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:14.336460" level="INFO">Clicking element 'xpath=//a[@href="/owners/find"]'.</msg>
+<arg>xpath=//a[@href="/owners/find"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:14.336225" elapsed="0.116846"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[@href="/owners/new"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:14.453296" elapsed="0.024595"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:14.478583" level="INFO">Clicking element 'xpath=//a[@href="/owners/new"]'.</msg>
+<arg>xpath=//a[@href="/owners/new"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:14.478200" elapsed="0.120965"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:14.314208" elapsed="0.285130"/>
+</kw>
+<kw name="Fill Owner Form" owner="owner_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:14.600383" level="INFO">Typing text 'Youssef' into text field 'id=firstName'.</msg>
+<arg>id=firstName</arg>
+<arg>${first}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:14.600146" elapsed="0.150440"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:14.751261" level="INFO">Typing text 'Alami' into text field 'id=lastName'.</msg>
+<arg>id=lastName</arg>
+<arg>${last}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:14.750892" elapsed="0.100135"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:14.852010" level="INFO">Typing text 'Hay Riad' into text field 'id=address'.</msg>
+<arg>id=address</arg>
+<arg>${address}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:14.851560" elapsed="0.104751"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:14.956831" level="INFO">Typing text 'Rabat' into text field 'id=city'.</msg>
+<arg>id=city</arg>
+<arg>${city}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:14.956541" elapsed="0.102279"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:15.059572" level="INFO">Typing text '0661234567' into text field 'id=telephone'.</msg>
+<arg>id=telephone</arg>
+<arg>${phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:15.059067" elapsed="0.136593"/>
+</kw>
+<arg>${first}</arg>
+<arg>${last}</arg>
+<arg>${address}</arg>
+<arg>${city}</arg>
+<arg>${phone}</arg>
+<status status="PASS" start="2026-03-19T20:40:14.599643" elapsed="0.596274"/>
+</kw>
+<kw name="Submit Owner Form" owner="owner_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:15.196656" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:15.196453" elapsed="0.185490"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:15.196144" elapsed="0.186069"/>
+</kw>
+<kw name="Verify Owner Created" owner="owner_keywords">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:15.416984" level="INFO">Current page contains text 'Youssef Alami'.</msg>
+<arg>${fullname}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-03-19T20:40:15.383415" elapsed="0.033684"/>
+</kw>
+<arg>${first} ${last}</arg>
+<status status="PASS" start="2026-03-19T20:40:15.382614" elapsed="0.034595"/>
+</kw>
+<kw name="Close Browser Session" owner="owner_keywords">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-03-19T20:40:15.417721" elapsed="2.202652"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:15.417410" elapsed="2.203142"/>
+</kw>
+<arg>Youssef</arg>
+<arg>Alami</arg>
+<arg>Hay Riad</arg>
+<arg>Rabat</arg>
+<arg>0661234567</arg>
+<status status="PASS" start="2026-03-19T20:40:13.546649" elapsed="4.073989"/>
+</kw>
+<kw name="Add Single Owner">
+<kw name="Open PetClinic" owner="owner_keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:17.622113" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8080'.</msg>
+<arg>http://localhost:8080</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-03-19T20:40:17.621905" elapsed="0.836299"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-03-19T20:40:18.458508" elapsed="0.040928"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:17.621574" elapsed="0.878179"/>
+</kw>
+<kw name="Go To Add Owner Page" owner="owner_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[@href="/owners/find"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:18.500779" elapsed="0.031343"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:18.533543" level="INFO">Clicking element 'xpath=//a[@href="/owners/find"]'.</msg>
+<arg>xpath=//a[@href="/owners/find"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:18.532825" elapsed="0.139672"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[@href="/owners/new"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:18.673253" elapsed="0.025789"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:18.700166" level="INFO">Clicking element 'xpath=//a[@href="/owners/new"]'.</msg>
+<arg>xpath=//a[@href="/owners/new"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:18.699684" elapsed="0.142519"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:18.500089" elapsed="0.342588"/>
+</kw>
+<kw name="Fill Owner Form" owner="owner_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:18.845464" level="INFO">Typing text 'Sara' into text field 'id=firstName'.</msg>
+<arg>id=firstName</arg>
+<arg>${first}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:18.844670" elapsed="0.136040"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:18.981778" level="INFO">Typing text 'Benali' into text field 'id=lastName'.</msg>
+<arg>id=lastName</arg>
+<arg>${last}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:18.981105" elapsed="0.144261"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:19.126651" level="INFO">Typing text 'Maarif' into text field 'id=address'.</msg>
+<arg>id=address</arg>
+<arg>${address}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:19.126095" elapsed="0.110194"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:19.237430" level="INFO">Typing text 'Casablanca' into text field 'id=city'.</msg>
+<arg>id=city</arg>
+<arg>${city}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:19.236826" elapsed="0.120753"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:19.358607" level="INFO">Typing text '0662345678' into text field 'id=telephone'.</msg>
+<arg>id=telephone</arg>
+<arg>${phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:19.358030" elapsed="0.128692"/>
+</kw>
+<arg>${first}</arg>
+<arg>${last}</arg>
+<arg>${address}</arg>
+<arg>${city}</arg>
+<arg>${phone}</arg>
+<status status="PASS" start="2026-03-19T20:40:18.843271" elapsed="0.643858"/>
+</kw>
+<kw name="Submit Owner Form" owner="owner_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:19.489268" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:19.488649" elapsed="0.203889"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:19.487759" elapsed="0.205247"/>
+</kw>
+<kw name="Verify Owner Created" owner="owner_keywords">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:19.728983" level="INFO">Current page contains text 'Sara Benali'.</msg>
+<arg>${fullname}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-03-19T20:40:19.694208" elapsed="0.035076"/>
+</kw>
+<arg>${first} ${last}</arg>
+<status status="PASS" start="2026-03-19T20:40:19.693419" elapsed="0.036157"/>
+</kw>
+<kw name="Close Browser Session" owner="owner_keywords">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-03-19T20:40:19.731107" elapsed="2.188655"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:19.730212" elapsed="2.189703"/>
+</kw>
+<arg>Sara</arg>
+<arg>Benali</arg>
+<arg>Maarif</arg>
+<arg>Casablanca</arg>
+<arg>0662345678</arg>
+<status status="PASS" start="2026-03-19T20:40:17.621097" elapsed="4.298953"/>
+</kw>
+<kw name="Add Single Owner">
+<kw name="Open PetClinic" owner="owner_keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:21.921365" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8080'.</msg>
+<arg>http://localhost:8080</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-03-19T20:40:21.921226" elapsed="0.759329"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-03-19T20:40:22.681074" elapsed="0.042673"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:21.921005" elapsed="0.803007"/>
+</kw>
+<kw name="Go To Add Owner Page" owner="owner_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[@href="/owners/find"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:22.725017" elapsed="0.026953"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:22.753255" level="INFO">Clicking element 'xpath=//a[@href="/owners/find"]'.</msg>
+<arg>xpath=//a[@href="/owners/find"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:22.752560" elapsed="0.145603"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[@href="/owners/new"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:22.898454" elapsed="0.021099"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:22.920389" level="INFO">Clicking element 'xpath=//a[@href="/owners/new"]'.</msg>
+<arg>xpath=//a[@href="/owners/new"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:22.919966" elapsed="0.112867"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:22.724384" elapsed="0.308632"/>
+</kw>
+<kw name="Fill Owner Form" owner="owner_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:23.034774" level="INFO">Typing text 'Karim' into text field 'id=firstName'.</msg>
+<arg>id=firstName</arg>
+<arg>${first}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:23.034254" elapsed="0.107021"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:23.142372" level="INFO">Typing text 'Idrissi' into text field 'id=lastName'.</msg>
+<arg>id=lastName</arg>
+<arg>${last}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:23.141686" elapsed="0.101049"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:23.243752" level="INFO">Typing text 'Agdal' into text field 'id=address'.</msg>
+<arg>id=address</arg>
+<arg>${address}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:23.243156" elapsed="0.094714"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:23.338963" level="INFO">Typing text 'Rabat' into text field 'id=city'.</msg>
+<arg>id=city</arg>
+<arg>${city}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:23.338336" elapsed="0.102087"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:23.441361" level="INFO">Typing text '0663456789' into text field 'id=telephone'.</msg>
+<arg>id=telephone</arg>
+<arg>${phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:23.440900" elapsed="0.122669"/>
+</kw>
+<arg>${first}</arg>
+<arg>${last}</arg>
+<arg>${address}</arg>
+<arg>${city}</arg>
+<arg>${phone}</arg>
+<status status="PASS" start="2026-03-19T20:40:23.033413" elapsed="0.530527"/>
+</kw>
+<kw name="Submit Owner Form" owner="owner_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:23.565780" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:23.565179" elapsed="0.158388"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:23.564500" elapsed="0.159373"/>
+</kw>
+<kw name="Verify Owner Created" owner="owner_keywords">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:23.757041" level="INFO">Current page contains text 'Karim Idrissi'.</msg>
+<arg>${fullname}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-03-19T20:40:23.725205" elapsed="0.032117"/>
+</kw>
+<arg>${first} ${last}</arg>
+<status status="PASS" start="2026-03-19T20:40:23.724395" elapsed="0.033230"/>
+</kw>
+<kw name="Close Browser Session" owner="owner_keywords">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-03-19T20:40:23.759076" elapsed="2.176874"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:23.758210" elapsed="2.177973"/>
+</kw>
+<arg>Karim</arg>
+<arg>Idrissi</arg>
+<arg>Agdal</arg>
+<arg>Rabat</arg>
+<arg>0663456789</arg>
+<status status="PASS" start="2026-03-19T20:40:21.920572" elapsed="4.015713"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:13.545847" elapsed="12.391066"/>
+</test>
+<test id="s1-t2" name="Add Multiple Pets Test" line="14">
+<kw name="Add Single Pet">
+<kw name="Open PetClinic" owner="owner_keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:25.940038" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8080'.</msg>
+<arg>http://localhost:8080</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-03-19T20:40:25.939817" elapsed="0.742515"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-03-19T20:40:26.682734" elapsed="0.039800"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:25.939483" elapsed="0.783423"/>
+</kw>
+<kw name="Go To Owner Page" owner="pet_keywords">
+<kw name="Split String" owner="String">
+<msg time="2026-03-19T20:40:26.724800" level="INFO">${name_parts} = ['Anasse', 'Lekkioui']</msg>
+<var>${name_parts}</var>
+<arg>${fullname}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2026-03-19T20:40:26.724209" elapsed="0.000670"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-03-19T20:40:26.725938" level="INFO">${last} = Lekkioui</msg>
+<var>${last}</var>
+<arg>${name_parts}[-1]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-03-19T20:40:26.725186" elapsed="0.000809"/>
+</kw>
+<kw name="Go To Find Owner" owner="owner_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[@href="/owners/find"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:26.726964" elapsed="0.021667"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:26.749558" level="INFO">Clicking element 'xpath=//a[@href="/owners/find"]'.</msg>
+<arg>xpath=//a[@href="/owners/find"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:26.749047" elapsed="0.105994"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:26.726364" elapsed="0.128840"/>
+</kw>
+<kw name="Fill LastName Owner" owner="owner_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:26.856513" level="INFO">Typing text 'Lekkioui' into text field 'id=lastName'.</msg>
+<arg>id=lastName</arg>
+<arg>${last}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:26.856159" elapsed="0.130058"/>
+</kw>
+<arg>${last}</arg>
+<status status="PASS" start="2026-03-19T20:40:26.855516" elapsed="0.131048"/>
+</kw>
+<kw name="Submit Owner Form" owner="owner_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:26.987721" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:26.987434" elapsed="0.163807"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:26.986971" elapsed="0.164481"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//table[@id='owners']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:27.151780" elapsed="0.040729"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:27.193459" level="INFO">Clicking link 'Anasse Lekkioui'.</msg>
+<arg>${fullname}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:27.192923" elapsed="0.135797"/>
+</kw>
+<arg>${owner}</arg>
+<status status="PASS" start="2026-03-19T20:40:26.723482" elapsed="0.605434"/>
+</kw>
+<kw name="Go To Add Pet Page" owner="pet_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[contains(@href,'/pets/new')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:27.330060" elapsed="0.026654"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:27.358009" level="INFO">Clicking element 'xpath=//a[contains(@href,'/pets/new')]'.</msg>
+<arg>xpath=//a[contains(@href,'/pets/new')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:27.357288" elapsed="0.188938"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:27.329498" elapsed="0.216933"/>
+</kw>
+<kw name="Fill Pet Form" owner="pet_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=name</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:27.547625" elapsed="0.025967"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:27.574993" level="INFO">Typing text 'Rex' into text field 'id=name'.</msg>
+<arg>id=name</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:27.574148" elapsed="0.089265"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:27.664955" level="INFO">Executing JavaScript:
+document.getElementById('birthDate').value = '2022-03-10'
+Without any arguments.</msg>
+<arg>document.getElementById('birthDate').value = '${birthdate}'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-03-19T20:40:27.663851" elapsed="0.008132"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:27.673388" level="INFO">Selecting options from selection list 'id=type' by value dog.</msg>
+<arg>id=type</arg>
+<arg>${type}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2026-03-19T20:40:27.672542" elapsed="0.099015"/>
+</kw>
+<arg>${petname}</arg>
+<arg>${birthdate}</arg>
+<arg>${type}</arg>
+<status status="PASS" start="2026-03-19T20:40:27.546782" elapsed="0.225005"/>
+</kw>
+<kw name="Submit Pet Form" owner="pet_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:27.773401" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:27.772970" elapsed="0.086411"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//table[contains(@class,'table-striped')]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:27.859920" elapsed="0.139470"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:27.772259" elapsed="0.227524"/>
+</kw>
+<kw name="Verify Pet Created" owner="pet_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//table[contains(@class,'table-striped')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:28.001601" elapsed="0.020842"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:28.040823" level="INFO">Current page contains text 'Rex'.</msg>
+<arg>${petname}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-03-19T20:40:28.022911" elapsed="0.018216"/>
+</kw>
+<arg>${petname}</arg>
+<status status="PASS" start="2026-03-19T20:40:28.000534" elapsed="0.040904"/>
+</kw>
+<kw name="Close Browser Session" owner="owner_keywords">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-03-19T20:40:28.042617" elapsed="2.169238"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:28.042083" elapsed="2.169927"/>
+</kw>
+<arg>Anasse Lekkioui</arg>
+<arg>Rex</arg>
+<arg>2022-03-10</arg>
+<arg>dog</arg>
+<status status="PASS" start="2026-03-19T20:40:25.938811" elapsed="4.273286"/>
+</kw>
+<kw name="Add Single Pet">
+<kw name="Open PetClinic" owner="owner_keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:30.213650" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8080'.</msg>
+<arg>http://localhost:8080</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-03-19T20:40:30.213457" elapsed="0.750582"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-03-19T20:40:30.964423" elapsed="0.035652"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:30.213172" elapsed="0.787126"/>
+</kw>
+<kw name="Go To Owner Page" owner="pet_keywords">
+<kw name="Split String" owner="String">
+<msg time="2026-03-19T20:40:31.001985" level="INFO">${name_parts} = ['Anasse', 'Lekkioui']</msg>
+<var>${name_parts}</var>
+<arg>${fullname}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2026-03-19T20:40:31.001456" elapsed="0.000606"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-03-19T20:40:31.003031" level="INFO">${last} = Lekkioui</msg>
+<var>${last}</var>
+<arg>${name_parts}[-1]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-03-19T20:40:31.002335" elapsed="0.000765"/>
+</kw>
+<kw name="Go To Find Owner" owner="owner_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[@href="/owners/find"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:31.003915" elapsed="0.020080"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:31.024878" level="INFO">Clicking element 'xpath=//a[@href="/owners/find"]'.</msg>
+<arg>xpath=//a[@href="/owners/find"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:31.024414" elapsed="0.126172"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:31.003447" elapsed="0.147341"/>
+</kw>
+<kw name="Fill LastName Owner" owner="owner_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:31.152674" level="INFO">Typing text 'Lekkioui' into text field 'id=lastName'.</msg>
+<arg>id=lastName</arg>
+<arg>${last}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:31.152198" elapsed="0.101241"/>
+</kw>
+<arg>${last}</arg>
+<status status="PASS" start="2026-03-19T20:40:31.151438" elapsed="0.102171"/>
+</kw>
+<kw name="Submit Owner Form" owner="owner_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:31.254623" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:31.254312" elapsed="0.080815"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:31.253849" elapsed="0.081455"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//table[@id='owners']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:31.335509" elapsed="0.273282"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:31.609799" level="INFO">Clicking link 'Anasse Lekkioui'.</msg>
+<arg>${fullname}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:31.609414" elapsed="0.188474"/>
+</kw>
+<arg>${owner}</arg>
+<status status="PASS" start="2026-03-19T20:40:31.000730" elapsed="0.797506"/>
+</kw>
+<kw name="Go To Add Pet Page" owner="pet_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[contains(@href,'/pets/new')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:31.799445" elapsed="0.023414"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:31.824114" level="INFO">Clicking element 'xpath=//a[contains(@href,'/pets/new')]'.</msg>
+<arg>xpath=//a[contains(@href,'/pets/new')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:31.823414" elapsed="0.167613"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:31.798836" elapsed="0.192499"/>
+</kw>
+<kw name="Fill Pet Form" owner="pet_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=name</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:31.992849" elapsed="0.026536"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:32.020757" level="INFO">Typing text 'Luna' into text field 'id=name'.</msg>
+<arg>id=name</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:32.019951" elapsed="0.096439"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:32.118389" level="INFO">Executing JavaScript:
+document.getElementById('birthDate').value = '2021-07-15'
+Without any arguments.</msg>
+<arg>document.getElementById('birthDate').value = '${birthdate}'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-03-19T20:40:32.116904" elapsed="0.009098"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:32.127538" level="INFO">Selecting options from selection list 'id=type' by value cat.</msg>
+<arg>id=type</arg>
+<arg>${type}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2026-03-19T20:40:32.126637" elapsed="0.095018"/>
+</kw>
+<arg>${petname}</arg>
+<arg>${birthdate}</arg>
+<arg>${type}</arg>
+<status status="PASS" start="2026-03-19T20:40:31.991707" elapsed="0.230324"/>
+</kw>
+<kw name="Submit Pet Form" owner="pet_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:32.223551" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:32.223113" elapsed="0.102875"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//table[contains(@class,'table-striped')]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:32.326407" elapsed="0.112143"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:32.222497" elapsed="0.216392"/>
+</kw>
+<kw name="Verify Pet Created" owner="pet_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//table[contains(@class,'table-striped')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:32.440055" elapsed="0.015635"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:32.472414" level="INFO">Current page contains text 'Luna'.</msg>
+<arg>${petname}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-03-19T20:40:32.456082" elapsed="0.016606"/>
+</kw>
+<arg>${petname}</arg>
+<status status="PASS" start="2026-03-19T20:40:32.439293" elapsed="0.033706"/>
+</kw>
+<kw name="Close Browser Session" owner="owner_keywords">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-03-19T20:40:32.474538" elapsed="2.163320"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:32.473598" elapsed="2.164433"/>
+</kw>
+<arg>Anasse Lekkioui</arg>
+<arg>Luna</arg>
+<arg>2021-07-15</arg>
+<arg>cat</arg>
+<status status="PASS" start="2026-03-19T20:40:30.212686" elapsed="4.425670"/>
+</kw>
+<kw name="Add Single Pet">
+<kw name="Open PetClinic" owner="owner_keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:34.640127" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8080'.</msg>
+<arg>http://localhost:8080</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-03-19T20:40:34.639878" elapsed="0.807692"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-03-19T20:40:35.448249" elapsed="0.025688"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:34.639523" elapsed="0.834723"/>
+</kw>
+<kw name="Go To Owner Page" owner="pet_keywords">
+<kw name="Split String" owner="String">
+<msg time="2026-03-19T20:40:35.476691" level="INFO">${name_parts} = ['Anasse', 'Lekkioui']</msg>
+<var>${name_parts}</var>
+<arg>${fullname}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2026-03-19T20:40:35.475985" elapsed="0.000787"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-03-19T20:40:35.477611" level="INFO">${last} = Lekkioui</msg>
+<var>${last}</var>
+<arg>${name_parts}[-1]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-03-19T20:40:35.477120" elapsed="0.000571"/>
+</kw>
+<kw name="Go To Find Owner" owner="owner_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[@href="/owners/find"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:35.478650" elapsed="0.021161"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:35.501023" level="INFO">Clicking element 'xpath=//a[@href="/owners/find"]'.</msg>
+<arg>xpath=//a[@href="/owners/find"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:35.500377" elapsed="0.115890"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:35.478024" elapsed="0.138615"/>
+</kw>
+<kw name="Fill LastName Owner" owner="owner_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:35.618631" level="INFO">Typing text 'Lekkioui' into text field 'id=lastName'.</msg>
+<arg>id=lastName</arg>
+<arg>${last}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:35.618155" elapsed="0.092144"/>
+</kw>
+<arg>${last}</arg>
+<status status="PASS" start="2026-03-19T20:40:35.617218" elapsed="0.093265"/>
+</kw>
+<kw name="Submit Owner Form" owner="owner_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:35.712596" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:35.711904" elapsed="0.078716"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:35.710749" elapsed="0.080235"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//table[@id='owners']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:35.791442" elapsed="0.094470"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:35.886698" level="INFO">Clicking link 'Anasse Lekkioui'.</msg>
+<arg>${fullname}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:35.886245" elapsed="0.143821"/>
+</kw>
+<arg>${owner}</arg>
+<status status="PASS" start="2026-03-19T20:40:35.474970" elapsed="0.555276"/>
+</kw>
+<kw name="Go To Add Pet Page" owner="pet_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[contains(@href,'/pets/new')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:36.031051" elapsed="0.023621"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:36.055923" level="INFO">Clicking element 'xpath=//a[contains(@href,'/pets/new')]'.</msg>
+<arg>xpath=//a[contains(@href,'/pets/new')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:36.055234" elapsed="0.193245"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:36.030557" elapsed="0.218115"/>
+</kw>
+<kw name="Fill Pet Form" owner="pet_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=name</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:36.249771" elapsed="0.023609"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:36.274687" level="INFO">Typing text 'Nemo' into text field 'id=name'.</msg>
+<arg>id=name</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:36.273940" elapsed="0.087998"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:36.364009" level="INFO">Executing JavaScript:
+document.getElementById('birthDate').value = '2020-11-20'
+Without any arguments.</msg>
+<arg>document.getElementById('birthDate').value = '${birthdate}'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-03-19T20:40:36.362525" elapsed="0.007937"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:36.371853" level="INFO">Selecting options from selection list 'id=type' by value bird.</msg>
+<arg>id=type</arg>
+<arg>${type}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2026-03-19T20:40:36.371006" elapsed="0.065709"/>
+</kw>
+<arg>${petname}</arg>
+<arg>${birthdate}</arg>
+<arg>${type}</arg>
+<status status="PASS" start="2026-03-19T20:40:36.248984" elapsed="0.188088"/>
+</kw>
+<kw name="Submit Pet Form" owner="pet_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:36.439071" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-19T20:40:36.438600" elapsed="0.087535"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//table[contains(@class,'table-striped')]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:36.526927" elapsed="0.109096"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:36.437721" elapsed="0.198786"/>
+</kw>
+<kw name="Verify Pet Created" owner="pet_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//table[contains(@class,'table-striped')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-19T20:40:36.638178" elapsed="0.019546"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-03-19T20:40:36.676773" level="INFO">Current page contains text 'Nemo'.</msg>
+<arg>${petname}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-03-19T20:40:36.658583" elapsed="0.018479"/>
+</kw>
+<arg>${petname}</arg>
+<status status="PASS" start="2026-03-19T20:40:36.637165" elapsed="0.040404"/>
+</kw>
+<kw name="Close Browser Session" owner="owner_keywords">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-03-19T20:40:36.678563" elapsed="2.163780"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:36.677973" elapsed="2.164561"/>
+</kw>
+<arg>Anasse Lekkioui</arg>
+<arg>Nemo</arg>
+<arg>2020-11-20</arg>
+<arg>bird</arg>
+<status status="PASS" start="2026-03-19T20:40:34.638989" elapsed="4.203746"/>
+</kw>
+<status status="PASS" start="2026-03-19T20:40:25.937909" elapsed="12.905367"/>
+</test>
+<status status="PASS" start="2026-03-19T20:40:13.344439" elapsed="25.499979"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Data Driven Tests" id="s1" pass="2" fail="0" skip="0">Data Driven Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
