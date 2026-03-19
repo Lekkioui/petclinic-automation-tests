@@ -12,8 +12,9 @@ Open PetClinic
     ${service}=    Evaluate
     ...    __import__('selenium.webdriver.chrome.service', fromlist=['Service']).Service(__import__('webdriver_manager.chrome', fromlist=['ChromeDriverManager']).ChromeDriverManager().install())
     Create Webdriver    Chrome    options=${chrome_options}    service=${service}
-    Go To    ${BASE_URL}
-    Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]    timeout=30s
+    Go To    http://127.0.0.1:8080
+    Wait Until Keyword Succeeds    3x    10s
+    ...    Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]    timeout=20s
 
 Go To Add Owner Page
     Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]

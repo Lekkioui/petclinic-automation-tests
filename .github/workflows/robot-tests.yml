@@ -38,16 +38,20 @@ jobs:
       - name: Start PetClinic
         run: |
           docker run -d -p 8080:8080 --name petclinic springcommunity/spring-framework-petclinic
-          echo "Waiting for PetClinic..."
-          for i in {1..24}; do
-              if curl -s http://localhost:8080 > /dev/null; then
-                  echo "PetClinic is up!"
-                  break
-              fi
-              echo "Attempt $i: not ready yet..."
-              sleep 5
+
+          echo "Waiting for PetClinic FULL startup..."
+
+          for i in {1..30}; do
+            if curl -s http://localhost:8080/owners/find | grep -q "Owners"; then
+              echo "PetClinic UI is READY!"
+              break
+            fi
+            echo "Attempt $i: UI not ready yet..."
+            sleep 5
           done
-          sleep 10  
+
+          echo "Extra wait for safety..."
+          sleep 15
 
       - name: Run Robot Framework Tests
         run: |
