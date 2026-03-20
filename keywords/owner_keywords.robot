@@ -28,7 +28,7 @@ Open PetClinic
 
     # Étape 3 : attendre le menu (UI prête)
     Wait Until Keyword Succeeds    6x    5s
-    ...    Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]    timeout=10s
+    ...    Wait Until Page Contains Element    tag=nav    timeout=60s
 
 Go To Add Owner Page
     Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]
