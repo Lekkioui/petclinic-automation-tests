@@ -5,26 +5,28 @@ Resource    ../resources/common.robot
 
 *** Keywords ***
 Go To Add Owner Page
-    Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]
-    Click Element    xpath=//a[@href="/owners/find"]
-    Wait Until Element Is Visible    xpath=//a[@href="/owners/new"]
-    Click Element    xpath=//a[@href="/owners/new"]
+    Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]    timeout=10s
+    Click Element                    xpath=//a[@href="/owners/find"]
+    Wait Until Element Is Visible    xpath=//a[@href="/owners/new"]    timeout=10s
+    Click Element                    xpath=//a[@href="/owners/new"]
 
 Go To Find Owner
-    Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]
-    Click Element    xpath=//a[@href="/owners/find"]
+    Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]    timeout=10s
+    Click Element                    xpath=//a[@href="/owners/find"]
 
 Fill Owner Form
     [Arguments]    ${first}    ${last}    ${address}    ${city}    ${phone}
-    Input Text    id=firstName    ${first}
-    Input Text    id=lastName     ${last}
-    Input Text    id=address      ${address}
-    Input Text    id=city         ${city}
-    Input Text    id=telephone    ${phone}
+    Wait Until Element Is Visible    id=firstName    timeout=10s
+    Set Field Value    firstName    ${first}
+    Set Field Value    lastName     ${last}
+    Set Field Value    address      ${address}
+    Set Field Value    city         ${city}
+    Set Field Value    telephone    ${phone}
 
 Fill LastName Owner
     [Arguments]    ${last}
-    Input Text     id=lastName     ${last}
+    Wait Until Element Is Visible    id=lastName    timeout=10s
+    Set Field Value                  lastName       ${last}
 
 Submit Owner Form
     Click Button    xpath=//button[@type='submit']
@@ -56,13 +58,12 @@ Select Owner From Results
 Go To Edit Owner Page
     [Arguments]    ${fullname}
     Go To Owner Page    ${fullname}
-    Wait Until Element Is Visible    xpath=//a[contains(@href,'/edit')]
-    Click Element    xpath=//a[contains(@href,'/edit')]
+    Wait Until Element Is Visible    xpath=//a[contains(@href,'/edit')]    timeout=10s
+    Click Element                    xpath=//a[contains(@href,'/edit')]
 
 Edit Owner Form
     [Arguments]    ${field}    ${value}
-    Clear Element Text    id=${field}
-    Input Text    id=${field}    ${value}
+    Set Field Value    ${field}    ${value}
 
 Verify Owner Updated
     [Arguments]    ${value}
