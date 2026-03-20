@@ -17,7 +17,9 @@ Open PetClinic
 Close Browser Session
     Close Browser
 
-# REMPLACEZ ces trois keywords par ceux-ci :
+# ============================================
+# NOUVEAUX KEYWORDS CORRIGÉS (SANS JAVASCRIPT)
+# ============================================
 
 Set Field Value
     [Arguments]    ${field_id}    ${value}
