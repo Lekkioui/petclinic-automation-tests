@@ -3,13 +3,8 @@ Resource    ../resources/common.robot
 Library    SeleniumLibrary
 
 *** Keywords ***
-Open PetClinic
-    Open Browser    http://127.0.0.1:8080    chrome
-    Maximize Browser Window
-
-    Sleep    10s
-
-    Wait Until Page Contains    PetClinic    timeout=60s
+# Note: Open PetClinic est maintenant dans common.robot
+# Ne pas redéfinir ici !
 
 Go To Add Owner Page
     Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]
@@ -76,6 +71,3 @@ Edit Owner Form
 Verify Owner Updated
     [Arguments]    ${value}
     Wait Until Page Contains    ${value}    timeout=10s
-
-Close Browser Session
-    Close Browser
