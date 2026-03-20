@@ -9,12 +9,25 @@ Open PetClinic
     Call Method    ${chrome_options}    add_argument    --no-sandbox
     Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
     Call Method    ${chrome_options}    add_argument    --disable-gpu
+
     ${service}=    Evaluate
     ...    __import__('selenium.webdriver.chrome.service', fromlist=['Service']).Service(__import__('webdriver_manager.chrome', fromlist=['ChromeDriverManager']).ChromeDriverManager().install())
+
     Create Webdriver    Chrome    options=${chrome_options}    service=${service}
+
     Go To    http://127.0.0.1:8080
-    Wait Until Keyword Succeeds    3x    10s
-    ...    Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]    timeout=20s
+
+    # Étape 1 : attendre que la page répond (HTML chargé)
+    Wait Until Keyword Succeeds    6x    5s
+    ...    Page Should Contain Element    tag=body
+
+    # Étape 2 : attendre que le titre soit présent (app chargée)
+    Wait Until Keyword Succeeds    6x    5s
+    ...    Title Should Contain    PetClinic
+
+    # Étape 3 : attendre le menu (UI prête)
+    Wait Until Keyword Succeeds    6x    5s
+    ...    Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]    timeout=10s
 
 Go To Add Owner Page
     Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]
