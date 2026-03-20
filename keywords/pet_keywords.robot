@@ -12,11 +12,8 @@ Go To Add Pet Page
 Fill Pet Form
     [Arguments]    ${name}    ${birthdate}    ${type}
     Wait Until Element Is Visible    id=name    timeout=10s
-    Wait Until Element Is Enabled    id=name    timeout=10s
-    Execute Javascript               document.getElementById('name').value = ''
-    Click Element                    id=name
-    Input Text                       id=name    ${name}
-    Set Date Field                   birthDate    ${birthdate}
+    Set Field Value                  name       ${name}
+    Set Date Field                   birthDate  ${birthdate}
     Wait Until Element Is Visible    id=type    timeout=10s
     Select From List By Value        id=type    ${type}
 

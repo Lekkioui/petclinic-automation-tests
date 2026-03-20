@@ -21,16 +21,37 @@ Set Field Value
     [Arguments]    ${field_id}    ${value}
     Wait Until Element Is Visible    id=${field_id}    timeout=10s
     Wait Until Element Is Enabled    id=${field_id}    timeout=10s
-    Execute Javascript               document.getElementById('${field_id}').value = ''
-    Click Element                    id=${field_id}
-    Input Text                       id=${field_id}    ${value}
+    Execute Javascript
+    ...    (function(){
+    ...        var el = document.getElementById('${field_id}');
+    ...        var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+    ...        setter.call(el, '${value}');
+    ...        el.dispatchEvent(new Event('input', {bubbles:true}));
+    ...        el.dispatchEvent(new Event('change', {bubbles:true}));
+    ...    })();
 
 Set Date Field
     [Arguments]    ${field_id}    ${date_value}
     Wait Until Element Is Visible    id=${field_id}    timeout=10s
+    Wait Until Element Is Enabled    id=${field_id}    timeout=10s
     Execute Javascript
-    ...    var el = document.getElementById('${field_id}');
-    ...    var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
-    ...    nativeInputValueSetter.call(el, '${date_value}');
-    ...    el.dispatchEvent(new Event('input', { bubbles: true }));
-    ...    el.dispatchEvent(new Event('change', { bubbles: true }));
+    ...    (function(){
+    ...        var el = document.getElementById('${field_id}');
+    ...        var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+    ...        setter.call(el, '${date_value}');
+    ...        el.dispatchEvent(new Event('input', {bubbles:true}));
+    ...        el.dispatchEvent(new Event('change', {bubbles:true}));
+    ...    })();
+
+Set Textarea Value
+    [Arguments]    ${field_id}    ${value}
+    Wait Until Element Is Visible    id=${field_id}    timeout=10s
+    Wait Until Element Is Enabled    id=${field_id}    timeout=10s
+    Execute Javascript
+    ...    (function(){
+    ...        var el = document.getElementById('${field_id}');
+    ...        var setter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value').set;
+    ...        setter.call(el, '${value}');
+    ...        el.dispatchEvent(new Event('input', {bubbles:true}));
+    ...        el.dispatchEvent(new Event('change', {bubbles:true}));
+    ...    })();
