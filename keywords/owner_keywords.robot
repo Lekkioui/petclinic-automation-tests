@@ -1,11 +1,9 @@
 *** Settings ***
+Library     SeleniumLibrary
+Library     String
 Resource    ../resources/common.robot
-Library    SeleniumLibrary
 
 *** Keywords ***
-# Note: Open PetClinic est maintenant dans common.robot
-# Ne pas redéfinir ici !
-
 Go To Add Owner Page
     Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]
     Click Element    xpath=//a[@href="/owners/find"]
@@ -35,11 +33,9 @@ Go To Owner Page
     [Arguments]    ${fullname}
     ${name_parts}=    Split String    ${fullname}    ${SPACE}
     ${last}=          Set Variable    ${name_parts}[-1]
-
     Go To Find Owner
     Fill LastName Owner    ${last}
     Submit Owner Form
-
     Wait Until Element Is Visible    xpath=//table[@id='owners']    timeout=10s
     Click Link    ${fullname}
 

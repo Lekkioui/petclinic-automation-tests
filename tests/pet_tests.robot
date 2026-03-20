@@ -8,7 +8,7 @@ Add Pet Test
     Open PetClinic
     Go To Owner Page       Anasse Lekkioui
     Go To Add Pet Page
-    Fill Pet Form          Mil  2022-01-15    dog
+    Fill Pet Form          Mil    2022-01-15    dog
     Submit Pet Form
     Verify Pet Created     Mil
     Close Browser Session

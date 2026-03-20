@@ -5,16 +5,6 @@ Resource    ../resources/common.robot
 Resource    ../keywords/owner_keywords.robot
 
 *** Keywords ***
-Go To Owner Page
-    [Arguments]    ${fullname}
-    ${name_parts}=    Split String    ${fullname}    ${SPACE}
-    ${last}=          Set Variable    ${name_parts}[-1]
-    Go To Find Owner
-    Fill LastName Owner    ${last}
-    Submit Owner Form
-    Wait Until Element Is Visible    xpath=//table[@id='owners']    timeout=10s
-    Click Link    ${fullname}
-
 Go To Add Pet Page
     Wait Until Element Is Visible    xpath=//a[contains(@href,'/pets/new')]    timeout=10s
     Click Element    xpath=//a[contains(@href,'/pets/new')]
@@ -22,7 +12,7 @@ Go To Add Pet Page
 Fill Pet Form
     [Arguments]    ${name}    ${birthdate}    ${type}
     Wait Until Element Is Visible    id=name    timeout=10s
-    Input Text    id=name         ${name}
+    Input Text    id=name    ${name}
     Execute Javascript    document.getElementById('birthDate').value = '${birthdate}'
     Select From List By Value    id=type    ${type}
 

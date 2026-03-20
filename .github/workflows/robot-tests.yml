@@ -12,33 +12,51 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      
+
       - name: Install Chrome
         run: |
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable xvfb
-      
-      - name: Install Robot Framework
+
+      - name: Install dependencies
         run: |
           pip install robotframework
           pip install robotframework-seleniumlibrary
           pip install webdriver-manager
-      
+
+      - name: Setup ChromeDriver
+        run: |
+          python - <<'EOF'
+          from webdriver_manager.chrome import ChromeDriverManager
+          from selenium.webdriver.chrome.service import Service
+          import subprocess, os
+          path = ChromeDriverManager().install()
+          print(f"ChromeDriver installed at: {path}")
+          # Add to PATH
+          chromedriver_dir = os.path.dirname(path)
+          with open(os.environ['GITHUB_PATH'], 'a') as f:
+              f.write(chromedriver_dir + '\n')
+          EOF
+
       - name: Start PetClinic
         run: |
           docker run -d -p 8080:8080 --name petclinic springcommunity/spring-framework-petclinic
-          sleep 30
-          curl -s http://localhost:8080 || echo "Waiting..."
-      
+          echo "Waiting for PetClinic to start..."
+          for i in {1..30}; do
+            curl -sf http://localhost:8080 && echo "PetClinic is up!" && break
+            echo "Attempt $i/30..."
+            sleep 5
+          done
+
       - name: Run Tests
         run: |
           xvfb-run --auto-servernum robot --outputdir results tests/
-      
+
       - name: Upload Results
         uses: actions/upload-artifact@v4
         if: always()
