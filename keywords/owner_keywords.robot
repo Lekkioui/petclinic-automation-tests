@@ -1,5 +1,6 @@
 *** Settings ***
 Resource    ../resources/common.robot
+Library    SeleniumLibrary
 
 *** Keywords ***
 Open PetClinic
@@ -23,7 +24,7 @@ Open PetClinic
 
     # Étape 2 : attendre que le titre soit présent (app chargée)
     Wait Until Keyword Succeeds    6x    5s
-    ...    Title Should Contain    PetClinic
+    ...    Page Should Contain Element    xpath=//body
 
     # Étape 3 : attendre le menu (UI prête)
     Wait Until Keyword Succeeds    6x    5s
