@@ -21,7 +21,10 @@ Set Field Value
     [Arguments]    ${field_id}    ${value}
     Wait Until Element Is Visible    id=${field_id}    timeout=10s
     Wait Until Element Is Enabled    id=${field_id}    timeout=10s
-    Execute Javascript    document.getElementById('${field_id}').value = '${value}'; document.getElementById('${field_id}').dispatchEvent(new Event('input', {bubbles:true})); document.getElementById('${field_id}').dispatchEvent(new Event('change', {bubbles:true}));
+    Click Element                    id=${field_id}
+    Press Keys                       id=${field_id}    CTRL+a
+    Press Keys                       id=${field_id}    DELETE
+    Input Text                       id=${field_id}    ${value}
 
 Set Date Field
     [Arguments]    ${field_id}    ${date_value}
@@ -33,4 +36,7 @@ Set Textarea Value
     [Arguments]    ${field_id}    ${value}
     Wait Until Element Is Visible    id=${field_id}    timeout=10s
     Wait Until Element Is Enabled    id=${field_id}    timeout=10s
-    Execute Javascript    document.getElementById('${field_id}').value = '${value}'; document.getElementById('${field_id}').dispatchEvent(new Event('input', {bubbles:true})); document.getElementById('${field_id}').dispatchEvent(new Event('change', {bubbles:true}));
+    Click Element                    id=${field_id}
+    Press Keys                       id=${field_id}    CTRL+a
+    Press Keys                       id=${field_id}    DELETE
+    Input Text                       id=${field_id}    ${value}
