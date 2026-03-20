@@ -19,29 +19,38 @@ jobs:
         with:
           python-version: '3.11'
 
+      # ÉTAPE CRUCIALE : Installer Chrome explicitement
+      - name: Install Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
       - name: Install dependencies
         run: |
           pip install robotframework
           pip install robotframework-seleniumlibrary
           pip install webdriver-manager
+          pip install selenium
 
-      - name: Install Chrome and matching ChromeDriver
+      # Vérifier que Chrome est bien installé
+      - name: Verify Chrome installation
         run: |
-          pip install selenium webdriver-manager
-          python -c "
-          from selenium import webdriver
-          from selenium.webdriver.chrome.service import Service
-          from webdriver_manager.chrome import ChromeDriverManager
-          print(ChromeDriverManager().install())
-          "
+          google-chrome --version
 
       - name: Start PetClinic
         run: |
           docker run -d -p 8080:8080 --name petclinic springcommunity/spring-framework-petclinic
-
-          echo "Waiting for FULL startup..."
-
-          sleep 40
+          
+          # Attendre que PetClinic soit vraiment prêt
+          echo "Waiting for PetClinic to start..."
+          for i in {1..30}; do
+            if curl -s http://localhost:8080 > /dev/null; then
+              echo "PetClinic is up!"
+              break
+            fi
+            echo "Attempt $i/30 - PetClinic not ready yet..."
+            sleep 2
+          done
 
       - name: Run Robot Framework Tests
         run: |
