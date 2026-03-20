@@ -12,8 +12,17 @@ Go To Add Visit Page
 
 Fill Visit Form
     [Arguments]    ${date}    ${description}
-    Set Date Field       date         ${date}
-    Set Textarea Value   description  ${description}
+    # Remplir la date directement
+    Wait Until Element Is Visible    id=date    timeout=10s
+    Wait Until Element Is Enabled    id=date    timeout=10s
+    Clear Element Text    id=date
+    Input Text    id=date    ${date}
+    
+    # Remplir la description
+    Wait Until Element Is Visible    id=description    timeout=10s
+    Wait Until Element Is Enabled    id=description    timeout=10s
+    Clear Element Text    id=description
+    Input Text    id=description    ${description}
 
 Submit Visit Form
     Click Button    xpath=//button[@type='submit']
