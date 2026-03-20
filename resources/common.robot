@@ -21,37 +21,16 @@ Set Field Value
     [Arguments]    ${field_id}    ${value}
     Wait Until Element Is Visible    id=${field_id}    timeout=10s
     Wait Until Element Is Enabled    id=${field_id}    timeout=10s
-    Execute Javascript
-    ...    (function(){
-    ...        var el = document.getElementById('${field_id}');
-    ...        var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
-    ...        setter.call(el, '${value}');
-    ...        el.dispatchEvent(new Event('input', {bubbles:true}));
-    ...        el.dispatchEvent(new Event('change', {bubbles:true}));
-    ...    })();
+    Execute Javascript    (function(){ var el = document.getElementById('${field_id}'); var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; setter.call(el, '${value}'); el.dispatchEvent(new Event('input', {bubbles:true})); el.dispatchEvent(new Event('change', {bubbles:true})); })();
 
 Set Date Field
     [Arguments]    ${field_id}    ${date_value}
     Wait Until Element Is Visible    id=${field_id}    timeout=10s
     Wait Until Element Is Enabled    id=${field_id}    timeout=10s
-    Execute Javascript
-    ...    (function(){
-    ...        var el = document.getElementById('${field_id}');
-    ...        var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
-    ...        setter.call(el, '${date_value}');
-    ...        el.dispatchEvent(new Event('input', {bubbles:true}));
-    ...        el.dispatchEvent(new Event('change', {bubbles:true}));
-    ...    })();
+    Execute Javascript    (function(){ var el = document.getElementById('${field_id}'); var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; setter.call(el, '${date_value}'); el.dispatchEvent(new Event('input', {bubbles:true})); el.dispatchEvent(new Event('change', {bubbles:true})); })();
 
 Set Textarea Value
     [Arguments]    ${field_id}    ${value}
     Wait Until Element Is Visible    id=${field_id}    timeout=10s
     Wait Until Element Is Enabled    id=${field_id}    timeout=10s
-    Execute Javascript
-    ...    (function(){
-    ...        var el = document.getElementById('${field_id}');
-    ...        var setter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value').set;
-    ...        setter.call(el, '${value}');
-    ...        el.dispatchEvent(new Event('input', {bubbles:true}));
-    ...        el.dispatchEvent(new Event('change', {bubbles:true}));
-    ...    })();
+    Execute Javascript    (function(){ var el = document.getElementById('${field_id}'); var setter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value').set; setter.call(el, '${value}'); el.dispatchEvent(new Event('input', {bubbles:true})); el.dispatchEvent(new Event('change', {bubbles:true})); })();
