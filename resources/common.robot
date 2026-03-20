@@ -21,10 +21,8 @@ Set Field Value
     [Arguments]    ${field_id}    ${value}
     Wait Until Element Is Visible    id=${field_id}    timeout=10s
     Wait Until Element Is Enabled    id=${field_id}    timeout=10s
-    Click Element                    id=${field_id}
-    Press Keys                       id=${field_id}    CTRL+a
-    Press Keys                       id=${field_id}    DELETE
-    Input Text                       id=${field_id}    ${value}
+    Execute Javascript    document.getElementById('${field_id}').value = '';
+    Input Text    id=${field_id}    ${value}
 
 Set Date Field
     [Arguments]    ${field_id}    ${date_value}
@@ -36,7 +34,5 @@ Set Textarea Value
     [Arguments]    ${field_id}    ${value}
     Wait Until Element Is Visible    id=${field_id}    timeout=10s
     Wait Until Element Is Enabled    id=${field_id}    timeout=10s
-    Click Element                    id=${field_id}
-    Press Keys                       id=${field_id}    CTRL+a
-    Press Keys                       id=${field_id}    DELETE
-    Input Text                       id=${field_id}    ${value}
+    Execute Javascript    document.getElementById('${field_id}').value = '';
+    Input Text    id=${field_id}    ${value}
