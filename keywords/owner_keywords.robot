@@ -4,31 +4,12 @@ Library    SeleniumLibrary
 
 *** Keywords ***
 Open PetClinic
-    ${chrome_options}=    Evaluate
-    ...    selenium.webdriver.ChromeOptions()    modules=selenium.webdriver
-    Call Method    ${chrome_options}    add_argument    --headless
-    Call Method    ${chrome_options}    add_argument    --no-sandbox
-    Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
-    Call Method    ${chrome_options}    add_argument    --disable-gpu
+    Open Browser    http://127.0.0.1:8080    chrome
+    Maximize Browser Window
 
-    ${service}=    Evaluate
-    ...    __import__('selenium.webdriver.chrome.service', fromlist=['Service']).Service(__import__('webdriver_manager.chrome', fromlist=['ChromeDriverManager']).ChromeDriverManager().install())
+    Sleep    10s
 
-    Create Webdriver    Chrome    options=${chrome_options}    service=${service}
-
-    Go To    http://127.0.0.1:8080
-
-    # Étape 1 : attendre que la page répond (HTML chargé)
-    Wait Until Keyword Succeeds    6x    5s
-    ...    Page Should Contain Element    tag=body
-
-    # Étape 2 : attendre que le titre soit présent (app chargée)
-    Wait Until Keyword Succeeds    6x    5s
-    ...    Page Should Contain Element    xpath=//body
-
-    # Étape 3 : attendre le menu (UI prête)
-    Wait Until Keyword Succeeds    6x    5s
-    ...    Wait Until Page Contains Element    tag=nav    timeout=60s
+    Wait Until Page Contains    PetClinic    timeout=60s
 
 Go To Add Owner Page
     Wait Until Element Is Visible    xpath=//a[@href="/owners/find"]
@@ -54,6 +35,18 @@ Fill LastName Owner
 
 Submit Owner Form
     Click Button    xpath=//button[@type='submit']
+
+Go To Owner Page
+    [Arguments]    ${fullname}
+    ${name_parts}=    Split String    ${fullname}    ${SPACE}
+    ${last}=          Set Variable    ${name_parts}[-1]
+
+    Go To Find Owner
+    Fill LastName Owner    ${last}
+    Submit Owner Form
+
+    Wait Until Element Is Visible    xpath=//table[@id='owners']    timeout=10s
+    Click Link    ${fullname}
 
 Verify Owner Created
     [Arguments]    ${fullname}
